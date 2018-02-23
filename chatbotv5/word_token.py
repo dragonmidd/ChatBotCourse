@@ -28,6 +28,7 @@ class WordToken(object):
                         else:
                             words_count[str] = 1
 
+        #由高到低排序后顺次编号
         sorted_list = [[v[1], v[0]] for v in words_count.items()]
         sorted_list.sort(reverse=True)
         for index, item in enumerate(sorted_list):
@@ -39,8 +40,8 @@ class WordToken(object):
         return index
 
     def word2id(self, word):
-        if not isinstance(word, unicode):
-            print "Exception: error word not unicode"
+        if not isinstance(word, str): 
+            print("Exception: error word not unicode")
             sys.exit(1)
         if word in self.word2id_dict:
             return self.word2id_dict[word]
